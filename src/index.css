@@ -3,8 +3,9 @@
 @tailwind utilities;
 @media print {
   @page {
-    margin: 0; /* removes white space */
+    margin: 0px; /* removes white space */
     size: A4;
+    
   }
 
   body {
