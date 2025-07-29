@@ -1,3 +1,6 @@
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const WorkExperience = ({
   jobTitle = "Module Lead / Senior Software Engineer",
   companyName = "Aspire  Systems",
@@ -12,7 +15,7 @@ const WorkExperience = ({
   ],
 }) => {
   return (
-    <div className="mb-4">
+    <div className="mb-4 break-inside-avoid">
       <h3 class="grid grid-cols-3 ">
         <span class="col-span-2 font-semibold text-lg">{jobTitle}</span>
         <span class="text-left font-regular text-sm">
@@ -21,9 +24,9 @@ const WorkExperience = ({
       </h3>
 
       <p className="text-sm">
-        {companyName}, {location}
+        <FontAwesomeIcon icon={faBuilding} /> {companyName}, {location}
       </p>
-      <p>{description}</p>
+      <p className="text-sm">{description}</p>
       <ul className="list-disc list-inside mt-2 text-sm">
         {acheivements &&
           acheivements.map((acheivement, index) => (

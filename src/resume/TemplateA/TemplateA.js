@@ -51,7 +51,7 @@ const TemplateA = () => {
         </p>
       </header>
       <Section title="Professional Summary">
-        <p>
+        <p className="text-sm mt-1">
           Senior Frontend Developer with 7+ years of experience building
           scalable, high-performance React and Angular applications. Skilled in
           modern JavaScript frameworks, component-based development, REST APIs,
@@ -71,23 +71,19 @@ const TemplateA = () => {
             <h2 className="text-mb font-semibold ">Backend</h2>
             <span className=" text-sm gap-y-1">NodeJs, Laravel , Python</span>
           </div>
-          <div>
-            <h2 className="text-mb font-semibold ">DataBases</h2>
-            <span className=" text-sm gap-y-1">MySQL, PGSQL</span>
+          <div className="col-span-2">
+            <h2 className="text-mb font-semibold ">Other</h2>
+            <span className=" text-sm gap-y-1">
+              CI/CD, Jenkins, Docker, Jira, Bitbucket, Git, SonarQube, Webpack,
+              Storybook, Typescript, ES6, GraphQL, Microfrontend, Javascript,
+              TDD, DDD (Domain Driven Development), Jest, React Testing Library,
+              D3Js, Figma, Code Review, AWS, Data Analytics
+            </span>
           </div>
-        </div>
-        <div>
-          <h2 className="text-mb font-semibold ">Other</h2>
-          <span className=" text-sm gap-y-1">
-            CI/CD, Jenkins, Docker, Jira, Bitbucket, Git, SonarQube, Webpack,
-            Storybook, Typescript, ES6, GraphQL, Microfrontend, Javascript, TDD,
-            DDD (Domain Driven Development), Jest, React Testing Library, D3Js,
-            Figma, Code Review, AWS, Data Analytics
-          </span>
         </div>
       </Section>
       <Section title="Work Experience">
-        <WorkExperience description="Led a small team of developers and Worked for a leading US-based Insurance company"/>
+        <WorkExperience description="Led a small team of developers and Worked for a leading US-based Insurance company" />
         <WorkExperience
           companyName="Fingent Global Solutions"
           location="Kochi, India"
@@ -122,9 +118,9 @@ const TemplateA = () => {
           acheivements={[]}
         />
       </Section>
-
-      <Section title="Languages">
-        <ul className="list-disc list-inside text-sm">
+      <div className="print:page-break"></div>
+      <Section title="Languages" className="print:pt-10">
+        <ul className="grid grid-cols-2  list-disc list-inside text-sm">
           <li> English (C1-C2)</li>
           <li> German (A1-A2) - Studying to reach B1-B2</li>
           <li> Hindi (B1)</li>
