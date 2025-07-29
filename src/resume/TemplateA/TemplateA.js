@@ -7,7 +7,7 @@ import {
   faPassport,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import HeaderLabel from "../../components/HeaderLabel";
 import WorkExperience from "../../components/WorkExperience";
 import Section from "../../components/Section";
@@ -17,6 +17,7 @@ const TemplateA = () => {
     <div className="max-w-4xl mx-auto px-4 py-8 text-gray-800 font-sans">
       <header className="text-center mb-5">
         <h1 className="text-3xl font-bold">Vivek Pulimparambil Rajeev</h1>
+        <h2 className="text-2xl font-bold">Senior Software Engineer</h2>
         <p className="text-sm mt-1">
           <HeaderLabel icon={faLocationDot} label={" Hamburg, Germany "} /> |
           <HeaderLabel icon={faPhone} label={" +49 1575 6609725 "} /> |
@@ -32,6 +33,14 @@ const TemplateA = () => {
             href="https://www.linkedin.com/in/vivekprajeev"
             rel="noopener noreferrer"
             label="LinkedIn Profile"
+          />{" "}
+          |
+          <HeaderLabel
+            icon={faGithub}
+            target="_blank"
+            href="https://github.com/VivekPRajeev"
+            rel="noopener noreferrer"
+            label="Github"
           />
         </p>
         <p className="text-sm mt-1">
@@ -50,16 +59,42 @@ const TemplateA = () => {
           collaborative team player.
         </p>
       </Section>
-
+      <Section title="Skills">
+        <div className="grid grid-cols-2 text-sm gap-y-1">
+          <div>
+            <h2 className="text-mb font-semibold ">Frontend</h2>
+            <div className=" text-sm gap-y-1">
+              <span>ReactJS, Redux, Tailwind, Angular, SCSS, Bootstrap </span>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-mb font-semibold ">Backend</h2>
+            <span className=" text-sm gap-y-1">NodeJs, Laravel , Python</span>
+          </div>
+          <div>
+            <h2 className="text-mb font-semibold ">DataBases</h2>
+            <span className=" text-sm gap-y-1">MySQL, PGSQL</span>
+          </div>
+        </div>
+        <div>
+          <h2 className="text-mb font-semibold ">Other</h2>
+          <span className=" text-sm gap-y-1">
+            CI/CD, Jenkins, Docker, Jira, Bitbucket, Git, SonarQube, Webpack,
+            Storybook, Typescript, ES6, GraphQL, Microfrontend, Javascript, TDD,
+            DDD (Domain Driven Development), Jest, React Testing Library, D3Js,
+            Figma, Code Review, AWS, Data Analytics
+          </span>
+        </div>
+      </Section>
       <Section title="Work Experience">
-        <WorkExperience />
+        <WorkExperience description="Led a small team of developers and Worked for a leading US-based Insurance company"/>
         <WorkExperience
           companyName="Fingent Global Solutions"
           location="Kochi, India"
           jobTitle="Software Engineer"
-          startDate="Aug 2017"
-          endDate="mar 2021"
-          description="something  something ass"
+          startDate="August 2017"
+          endDate="March 2021"
+          description="Worked on product team and was heavily involved in the development of InfinCE Digital Workplace"
           acheivements={[
             "Developed frontend modules using Angular, React, Laravel.",
             "Integrated Stripe for real-time billing and payment handling.",
@@ -67,92 +102,43 @@ const TemplateA = () => {
           ]}
         />
       </Section>
-
-      <section className="mb-6 text-left">
-        <h2 className="text-xl font-semibold border-b border-gray-300 pb-1 mb-2">
-          Education
-        </h2>
-        <p className="text-sm">
-          <strong>IIIT Bangalore</strong> – Executive PG Programme in ML & AI
-          (May 2023 – July 2024) – GPA: 3.44
-        </p>
-        <p className="text-sm mt-2">
-          <strong>University College of Engineering, Thodupuzha</strong> –
-          B.Tech in Electronics & Communication (2013–2017)
-        </p>
-      </section>
-      <Section title="Skills">
-        <div className="grid grid-cols-2 text-sm gap-y-1">
-          <div>
-            <h2 className="text-mb font-semibold ">Frontend</h2>
-            <div className="grid grid-cols-5 text-sm gap-y-1">
-              <span>ReactJS</span>
-              <span>Angular</span>
-              <span>Redux</span>
-              <span> Next.js</span>
-              <span>Typescript</span>
-              <span>Javascript</span>
-              <span>CSS</span>
-              <span>SCSS</span>
-              <span>Bootstrap</span>
-              <span>JQuery</span>
-            </div>
-          </div>
-          <div>
-            <h2 className="text-mb font-semibold ">Backend</h2>
-            <span>NodeJs, Laravel , Python</span>
-          </div>
-          <div>
-            <h2 className="text-mb font-semibold ">DataBases</h2>
-            <span>MySQL, PGSQL</span>
-          </div>
-         
-        </div>
-         <div>
-            <h2 className="text-mb font-semibold ">other</h2>
-            <span>
-              CI/CD, Jenkins, Docker, Jira, Bitbucket, Git, SonarQube, Webpack,
-              Storybook, Typescript, ES6, GraphQL, Microfrontend, Javascript,
-              TDD, DDD (Domain Driven Development), Jest, React Testing Library,
-              D3Js, Figma, Code Review, AWS, Data Analytics
-            </span>
-          </div>
+      <Section title="Education">
+        <WorkExperience
+          companyName="International Institute of Information Technology"
+          location="Banglore, India"
+          jobTitle="Executive PG Programme in Machine Learning & AI"
+          startDate="May 2023"
+          endDate="July 2024"
+          description="Completed course with  a GPA of 3.44"
+          acheivements={[]}
+        />
+        <WorkExperience
+          companyName="University College of Engineering, Thodupuzha"
+          location="Kerala, India"
+          jobTitle="B.Tech in Electronics & Communication"
+          startDate="March 2013"
+          endDate="May 2017"
+          description="Completed course with  a CGPA of 7.11"
+          acheivements={[]}
+        />
       </Section>
-      <section className="mb-6 text-left">
-        <h3 className="text-xl font-semibold border-b border-gray-300 pb-1 mb-2">
-          Frontend skills
-        </h3>
 
-        <div className="grid grid-cols-2 text-sm gap-y-1">
-          <span>Node.js, PHP, Laravel, Python</span>
-          <span>TypeScript, JavaScript (ES6+)</span>
-          <span>Tailwind CSS, Bootstrap, HTML, CSS</span>
-          <span>REST APIs, GraphQL, D3.js</span>
-          <span>Jenkins, Docker, CI/CD, AWS</span>
-          <span>Git, Bitbucket, Jira, Webpack</span>
-          <span>SonarQube, TDD, DDD, Jest</span>
-        </div>
-      </section>
-
-      <section className="mb-6 text-left">
-        <h2 className="text-xl font-semibold border-b border-gray-300 pb-1 mb-2">
-          Languages
-        </h2>
-        <p className="text-sm">
-          English (C1), German (A1), Hindi (B1), Malayalam (C2)
-        </p>
-      </section>
-
-      <section className="mb-6  text-left">
-        <h2 className="text-xl font-semibold border-b border-gray-300 pb-1 mb-2">
-          Certifications
-        </h2>
+      <Section title="Languages">
         <ul className="list-disc list-inside text-sm">
+          <li> English (C1-C2)</li>
+          <li> German (A1-A2) - Studying to reach B1-B2</li>
+          <li> Hindi (B1)</li>
+          <li> Malayalam (C2)</li>
+        </ul>
+      </Section>
+
+      <Section title="Certificates">
+        <ul className="grid grid-cols-2 list-disc list-inside text-sm">
           <li>Cutshort Certified JavaScript – Advanced (Feb 2025)</li>
           <li>IT Security Foundations – LinkedIn (Jul 2024)</li>
           <li>React: Software Architecture – LinkedIn (Aug 2021)</li>
         </ul>
-      </section>
+      </Section>
 
       <section className="mb-6 text-left">
         <h2 className="text-xl font-semibold border-b border-gray-300 pb-1 mb-2">
