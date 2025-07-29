@@ -4,7 +4,7 @@ const WorkExperience = ({
   location = "Kochi, India",
   startDate = "Mar 2021",
   endDate = "May 2024",
-  description = 'something something penis',
+  description = "something something penis",
   acheivements = [
     "Led migration to React, improving performance and UX.",
     "Boosted test coverage to 75% using SonarQube.",
@@ -13,16 +13,22 @@ const WorkExperience = ({
 }) => {
   return (
     <div className="mb-4">
-      <h3 className="font-semibold text-lg">
-        {companyName}, {location}
+      <h3 class="grid grid-cols-3 ">
+        <span class="col-span-2 font-semibold text-lg">{jobTitle}</span>
+        <span class="text-left font-regular text-sm">
+          | {startDate} – {endDate}
+        </span>
       </h3>
+
       <p className="text-sm">
-        {jobTitle} | {startDate} – {endDate}
+        {companyName}, {location}
       </p>
       <p>{description}</p>
       <ul className="list-disc list-inside mt-2 text-sm">
         {acheivements &&
-          acheivements.map((acheivement, index) => <li key={index}>{acheivement}</li>)}
+          acheivements.map((acheivement, index) => (
+            <li key={index}>{acheivement}</li>
+          ))}
       </ul>
     </div>
   );
