@@ -8,7 +8,7 @@ const WorkExperience = ({
   startDate = "Mar 2021",
   endDate = "May 2024",
   description = "something something penis",
-  acheivements = [
+  achievements = [
     "Led migration to React, improving performance and UX.",
     "Boosted test coverage to 75% using SonarQube.",
     "Managed CI/CD pipelines with Jenkins and resolved 100% of security vulnerabilities.",
@@ -28,9 +28,9 @@ const WorkExperience = ({
       </p>
       <p className="text-sm">{description}</p>
       <ul className="list-disc list-inside mt-2 text-sm">
-        {acheivements &&
-          acheivements.map((acheivement, index) => (
-            <li key={index}>{acheivement}</li>
+        {achievements &&
+          achievements.map((achievement, index) => (
+            <li key={index}>{achievement}</li>
           ))}
       </ul>
     </div>

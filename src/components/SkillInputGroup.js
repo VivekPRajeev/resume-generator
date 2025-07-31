@@ -24,7 +24,6 @@ const SkillInputGroup = () => {
   };
 
   const updateSkillSection = (newData, index) => {
-    console.log(newData, "test");
     setSkillSections((prev) =>
       prev.map((item, i) => (i === index ? { ...item, ...newData } : item))
     );

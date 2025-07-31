@@ -13,11 +13,16 @@ import WorkExperience from "../../components/WorkExperience";
 import Section from "../../components/Section";
 import Skills from "../../components/Skills";
 import { useAtomValue } from "jotai";
-import { professionalSummery, skillGroup } from "../../atoms/formAtoms";
+import {
+  experienceGroup,
+  professionalSummery,
+  skillGroup,
+} from "../../atoms/formAtoms";
 
 const TemplateA = () => {
   const skillValue = useAtomValue(skillGroup);
   const summary = useAtomValue(professionalSummery);
+  const workExp = useAtomValue(experienceGroup);
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 text-gray-800 font-sans">
       <header className="text-center mb-5">
@@ -62,20 +67,18 @@ const TemplateA = () => {
         <Skills skillData={skillValue} />
       </Section>
       <Section title="Work Experience">
-        <WorkExperience description="Led a small team of developers and Worked for a leading US-based Insurance company" />
-        <WorkExperience
-          companyName="Fingent Global Solutions"
-          location="Kochi, India"
-          jobTitle="Software Engineer"
-          startDate="August 2017"
-          endDate="March 2021"
-          description="Worked on product team and was heavily involved in the development of InfinCE Digital Workplace"
-          acheivements={[
-            "Developed frontend modules using Angular, React, Laravel.",
-            "Integrated Stripe for real-time billing and payment handling.",
-            "Created dynamic dashboards with data visualizations",
-          ]}
-        />
+        {workExp.map((work) => (
+          <WorkExperience
+            key={work.title}
+            achievements={work.achievements}
+            companyName={work.organization}
+            startDate={work.from}
+            endDate={work.to}
+            jobTitle={work.title}
+            location={work.location}
+            description={work.description}
+          />
+        ))}
       </Section>
       <Section title="Education">
         <WorkExperience
@@ -85,7 +88,7 @@ const TemplateA = () => {
           startDate="May 2023"
           endDate="July 2024"
           description="Completed course with  a GPA of 3.44"
-          acheivements={[]}
+          achievements={[]}
         />
         <WorkExperience
           companyName="University College of Engineering, Thodupuzha"
@@ -94,7 +97,7 @@ const TemplateA = () => {
           startDate="March 2013"
           endDate="May 2017"
           description="Completed course with  a CGPA of 7.11"
-          acheivements={[]}
+          achievements={[]}
         />
       </Section>
       <div className="print:page-break"></div>
