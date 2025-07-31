@@ -14,6 +14,7 @@ import Section from "../../components/Section";
 import Skills from "../../components/Skills";
 import { useAtomValue } from "jotai";
 import {
+  educationGroup,
   experienceGroup,
   professionalSummery,
   skillGroup,
@@ -23,6 +24,7 @@ const TemplateA = () => {
   const skillValue = useAtomValue(skillGroup);
   const summary = useAtomValue(professionalSummery);
   const workExp = useAtomValue(experienceGroup);
+  const education = useAtomValue(educationGroup)
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 text-gray-800 font-sans">
       <header className="text-center mb-5">
@@ -81,24 +83,16 @@ const TemplateA = () => {
         ))}
       </Section>
       <Section title="Education">
-        <WorkExperience
-          companyName="International Institute of Information Technology"
-          location="Banglore, India"
-          jobTitle="Executive PG Programme in Machine Learning & AI"
-          startDate="May 2023"
-          endDate="July 2024"
-          description="Completed course with  a GPA of 3.44"
+        {education.map(edu=> <WorkExperience
+          companyName={edu.organization}
+          location={edu.location}
+          jobTitle={edu.title}
+          startDate={edu.from}
+          endDate={edu.to}
+          description={edu.description}
           achievements={[]}
-        />
-        <WorkExperience
-          companyName="University College of Engineering, Thodupuzha"
-          location="Kerala, India"
-          jobTitle="B.Tech in Electronics & Communication"
-          startDate="March 2013"
-          endDate="May 2017"
-          description="Completed course with  a CGPA of 7.11"
-          achievements={[]}
-        />
+        />)}
+       
       </Section>
       <div className="print:page-break"></div>
       <Section title="Languages" className="print:pt-10">

@@ -52,12 +52,13 @@ export const experienceGroup = atom([
     location: "Kochi, India",
     from: "Mar 2021",
     to: "May 2024",
-    description: "Led a small team of developers and Worked for a leading US-based Insurance company",
+    description:
+      "Led a small team of developers and Worked for a leading US-based Insurance company",
     achievements: [
-    "Led migration to React, improving performance and UX.",
-    "Boosted test coverage to 75% using SonarQube.",
-    "Managed CI/CD pipelines with Jenkins and resolved 100% of security vulnerabilities.",
-  ],
+      "Led migration to React, improving performance and UX.",
+      "Boosted test coverage to 75% using SonarQube.",
+      "Managed CI/CD pipelines with Jenkins and resolved 100% of security vulnerabilities.",
+    ],
   },
   {
     title: "Software Engineer",
@@ -72,5 +73,26 @@ export const experienceGroup = atom([
       "Integrated Stripe for real-time billing and payment handling.",
       "Created dynamic dashboards with data visualizations",
     ],
+  },
+]);
+
+export const educationGroup = atom([
+  {
+    title: "Executive PG Programme in Machine Learning & AI",
+    organization: "International Institute of Information Technology",
+    location: "Banglore, India",
+    from: "May 2023",
+    to: "July 2024",
+    description: "Completed course with  a GPA of 3.44",
+    achievements: [],
+  },
+  {
+    title: "B.Tech in Electronics & Communication",
+    organization: "University College of Engineering, Thodupuzha",
+    location: "Kerala, India",
+    from: "March 2013",
+    to: "May 2017",
+    description: "Completed course with  a CGPA of 7.11",
+    achievements: [],
   },
 ]);

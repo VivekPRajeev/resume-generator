@@ -3,7 +3,8 @@ import FormInput from "./FormInput";
 import Section from "./Section";
 import SkillInputGroup from "./SkillInputGroup";
 import { professionalSummery } from "../atoms/formAtoms";
-import ExperienceInputGroup from "./ExperienceInputGroup";
+import WorkExperienceInputGroup from "./WorkExperienceInputGroup";
+import { EducationInputGroup } from "./EducationInputGroup";
 
 const USERINFO_INPUTS = [
   { id: 1, label: "Name", inputName: "name" },
@@ -59,7 +60,10 @@ const Form = () => {
           <SkillInputGroup />
         </Section>
         <Section title="Work Experience">
-          <ExperienceInputGroup />
+          <WorkExperienceInputGroup />
+        </Section>
+        <Section title="Education">
+          <EducationInputGroup />
         </Section>
         <button
           type="submit"

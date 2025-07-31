@@ -1,5 +1,4 @@
-import { useAtom } from "jotai";
-import { experienceGroup } from "../atoms/formAtoms";
+
 import ExperienceInput from "./ExperienceInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
@@ -14,9 +13,8 @@ const sampleExperienceGroup = {
   achievements: [],
 };
 
-const ExperienceInputGroup = () => {
-  const [experienceGroupSections, setExperienceGroupSections] =
-    useAtom(experienceGroup);
+const ExperienceInputGroup = ({experienceGroupSections =[],setExperienceGroupSections }) => {
+  
   const addNewExperienceSection = () => {
     setExperienceGroupSections((currentData) => [
       ...currentData,
