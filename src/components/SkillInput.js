@@ -1,14 +1,15 @@
 import { useState } from "react";
 import Badge from "./Badge";
 import FormInput from "./FormInput";
+import CheckBox from "./CheckBox";
 
 const mockData = {
   header: "Frontend",
   skills: ["ReactJS", "Redux", "Tailwind", "Angular", "SCSS", "Bootstrap"],
   occupyfullRow: false,
 };
-const SkillInput = () => {
-  const [skillData, setskillData] = useState(mockData);
+const SkillInput = ({ skillInfo = mockData }) => {
+  const [skillData, setskillData] = useState(skillInfo);
   const [skillInputValue, setSkillInputValue] = useState("");
 
   const addNewSkill = (newSkill) => {
@@ -21,19 +22,42 @@ const SkillInput = () => {
     }
   };
 
-  const removeSkill = (skill) =>{
+  const removeSkill = (skill) => {
     if (skillData.skills.includes(skill)) {
-        setskillData((currentData) => ({
+      setskillData((currentData) => ({
         ...currentData,
-        skills: currentData.skills.filter(item => item !== skill),
+        skills: currentData.skills.filter((item) => item !== skill),
       }));
     }
-  }
+  };
   return (
     <div>
+      <div className="grid  grid-cols-2">
+        <FormInput
+          label="Group Name"
+          inputname="skillHeading"
+          value={skillData.header}
+          onChange={(e) =>
+            setskillData((currentData) => ({
+              ...currentData,
+              header: e.target.value,
+            }))
+          }
+        />
+        <CheckBox
+          checked={skillData.occupyfullRow}
+          label="Fill Row ?"
+          onChange={(e) =>
+            setskillData((currentData) => ({
+              ...currentData,
+              occupyfullRow: !currentData.occupyfullRow,
+            }))
+          }
+        />
+      </div>
       <FormInput
-        label="Group Name"
-        inputname="skillHeading"
+        label="Add Skill"
+        inputname="skill"
         onChange={(e) => {
           setSkillInputValue(e.target.value);
         }}
@@ -47,7 +71,7 @@ const SkillInput = () => {
       />
       <div className="grid grid-cols-5">
         {skillData.skills.map((skill) => (
-          <Badge label={skill} key={skill}  onClose={()=>removeSkill(skill)}/>
+          <Badge label={skill} key={skill} onClose={() => removeSkill(skill)} />
         ))}
       </div>
     </div>
