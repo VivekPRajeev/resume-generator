@@ -41,8 +41,8 @@ const mockData = [
 const Skills = () => {
   return (
     <div className="grid grid-cols-2 text-sm gap-y-1">
-      {mockData.map((element) => (
-        <div className={`${element.occupyfullRow ? "col-span-2" : ""}`}>
+      {mockData.map((element, index) => (
+        <div className={`${element.occupyfullRow ? "col-span-2" : ""}`} key={index}>
           {element.header && (
             <h2 className="text-mb font-semibold ">{element.header}</h2>
           )}

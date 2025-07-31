@@ -16,9 +16,9 @@ const WorkExperience = ({
 }) => {
   return (
     <div className="mb-4 break-inside-avoid">
-      <h3 class="grid grid-cols-3 ">
-        <span class="col-span-2 font-semibold text-lg">{jobTitle}</span>
-        <span class="text-left font-regular text-sm">
+      <h3 className="grid grid-cols-3 ">
+        <span className="col-span-2 font-semibold text-lg">{jobTitle}</span>
+        <span className="text-left font-regular text-sm">
           | {startDate} – {endDate}
         </span>
       </h3>

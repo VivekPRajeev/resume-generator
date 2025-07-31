@@ -6,7 +6,18 @@ const Form = () => {
   return (
     <div className="mx-auto ml-10 mt-10 p-6 bg-white shadow-lg rounded-xl">
       <h2 className="text-2xl font-bold mb-4 text-center">Resume Content</h2>
-      <form onSubmit={() => {}} className="space-y-4">
+      <form
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+          }
+        }}
+        onSubmit={(e) => {
+          e.preventDefault(); // just in case
+          // your submit logic
+        }}
+        className="space-y-4"
+      >
         <Section title="Basic Info">
           <div className="grid grid-cols-2">
             <FormInput label="Name" inputName="name" />
