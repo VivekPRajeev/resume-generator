@@ -21,7 +21,7 @@ const Form = () => {
   const [professionalSummeryValue, setProfessionalSummeryValue] =
     useAtom(professionalSummery);
   return (
-    <div className="mx-auto ml-10 mt-10 p-6 bg-white shadow-lg rounded-xl">
+    <div className="mx-auto ml-10 mt-10 p-6 bg-white shadow-lg rounded-xl h-screen overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-rounded-md scrollbar-thumb-gray-400 scrollbar-track-gray-100">
       <h2 className="text-2xl font-bold mb-4 text-center">Resume Content</h2>
       <form
         onKeyDown={(e) => {
