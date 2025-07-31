@@ -1,8 +1,11 @@
+import { useAtom } from "jotai";
 import FormInput from "./FormInput";
 import Section from "./Section";
 import SkillInputGroup from "./SkillInputGroup";
+import { professionalSummery } from "../atoms/formAtoms";
 
 const Form = () => {
+  const [professionalSummeryValue, setProfessionalSummeryValue] = useAtom(professionalSummery)
   return (
     <div className="mx-auto ml-10 mt-10 p-6 bg-white shadow-lg rounded-xl">
       <h2 className="text-2xl font-bold mb-4 text-center">Resume Content</h2>
@@ -33,6 +36,8 @@ const Form = () => {
         </Section>
         <Section title="Professional Summary">
           <textarea
+            onChange={(e)=>setProfessionalSummeryValue(e.target.value)}
+            defaultValue={professionalSummeryValue}
             id="summary"
             name="summary"
             rows="4"

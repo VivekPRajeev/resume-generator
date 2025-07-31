@@ -12,8 +12,12 @@ import HeaderLabel from "../../components/HeaderLabel";
 import WorkExperience from "../../components/WorkExperience";
 import Section from "../../components/Section";
 import Skills from "../../components/Skills";
+import { useAtomValue } from "jotai";
+import { professionalSummery, skillGroup } from "../../atoms/formAtoms";
 
 const TemplateA = () => {
+  const skillValue = useAtomValue(skillGroup);
+  const summary = useAtomValue(professionalSummery);
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 text-gray-800 font-sans">
       <header className="text-center mb-5">
@@ -52,16 +56,10 @@ const TemplateA = () => {
         </p>
       </header>
       <Section title="Professional Summary">
-        <p className="text-sm mt-1">
-          Senior Frontend Developer with 7+ years of experience building
-          scalable, high-performance React and Angular applications. Skilled in
-          modern JavaScript frameworks, component-based development, REST APIs,
-          and CI/CD pipelines. Strong problem-solving abilities and
-          collaborative team player.
-        </p>
+        <p className="text-sm mt-1">{summary}</p>
       </Section>
       <Section title="Skills">
-        <Skills />
+        <Skills skillData={skillValue} />
       </Section>
       <Section title="Work Experience">
         <WorkExperience description="Led a small team of developers and Worked for a leading US-based Insurance company" />

@@ -38,10 +38,10 @@ const mockData = [
     occupyfullRow: true,
   },
 ];
-const Skills = () => {
+const Skills = ({skillData = mockData}) => {
   return (
     <div className="grid grid-cols-2 text-sm gap-y-1">
-      {mockData.map((element, index) => (
+      {skillData.map((element, index) => (
         <div className={`${element.occupyfullRow ? "col-span-2" : ""}`} key={index}>
           {element.header && (
             <h2 className="text-mb font-semibold ">{element.header}</h2>

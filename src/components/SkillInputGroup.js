@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
 import SkillInput from "./SkillInput";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { useAtom } from "jotai";
+import { skillGroup } from "../atoms/formAtoms";
 
 const sampleSkillStructure = {
   header: "Frontend",
   skills: ["ReactJS", "Redux", "Tailwind", "Angular", "SCSS", "Bootstrap"],
   occupyfullRow: false,
 };
-const mockData = [{ ...sampleSkillStructure }];
 
 const SkillInputGroup = () => {
-  const [skillSections, setSkillSections] = useState(mockData);
+  const [skillSections, setSkillSections] = useAtom(skillGroup);
 
   const addNewSkillSection = () => {
     setSkillSections((currentData) => [...currentData, sampleSkillStructure]);
@@ -24,16 +24,12 @@ const SkillInputGroup = () => {
   };
 
   const updateSkillSection = (newData, index) => {
-    console.log(newData,'test')
+    console.log(newData, "test");
     setSkillSections((prev) =>
       prev.map((item, i) => (i === index ? { ...item, ...newData } : item))
     );
   };
 
-  useEffect(() => {
-    console.log(skillSections)
-  }, [skillSections])
-  
   return (
     <div>
       {skillSections.map((section, index) => (
@@ -51,7 +47,12 @@ const SkillInputGroup = () => {
           ) : (
             <></>
           )}
-          <SkillInput skillInfo={section} updateSkillData={(skillData) => updateSkillSection(skillData, index)} />
+          <SkillInput
+            skillInfo={section}
+            updateSkillData={(skillData) =>
+              updateSkillSection(skillData, index)
+            }
+          />
         </div>
       ))}
 

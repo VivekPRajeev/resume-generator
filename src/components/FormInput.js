@@ -7,13 +7,15 @@ const FormInput = ({label, inputName, value,  onKeyDown=()=>{},  onChange=()=>{}
       </label>
       <input
         type="text"
+        defaultValue={  value
+             }
         onKeyDown={onKeyDown}
         id={inputName}
         name={inputName}
         onChange={onChange}
         className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-400 mr-6 w-20"
         required
-        value={value}
+       
         onBlur={onBlur}
       />
     </div>
