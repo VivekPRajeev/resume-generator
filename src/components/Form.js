@@ -3,9 +3,23 @@ import FormInput from "./FormInput";
 import Section from "./Section";
 import SkillInputGroup from "./SkillInputGroup";
 import { professionalSummery } from "../atoms/formAtoms";
+import ExperienceInputGroup from "./ExperienceInputGroup";
 
+const USERINFO_INPUTS = [
+  { id: 1, label: "Name", inputName: "name" },
+  { id: 2, label: "Job Title", inputName: "title" },
+  { id: 3, label: "Location", inputName: "location" },
+  { id: 4, label: "Phone", inputName: "phone" },
+  { id: 5, label: "Email", inputName: "mail" },
+  { id: 6, label: "LinkedIn", inputName: "linkedin" },
+  { id: 7, label: "GitHub", inputName: "github" },
+  { id: 8, label: "Date of Birth", inputName: "dob" },
+  { id: 9, label: "Nationality", inputName: "nationality" },
+  { id: 10, label: "Visa", inputName: "visa" },
+];
 const Form = () => {
-  const [professionalSummeryValue, setProfessionalSummeryValue] = useAtom(professionalSummery)
+  const [professionalSummeryValue, setProfessionalSummeryValue] =
+    useAtom(professionalSummery);
   return (
     <div className="mx-auto ml-10 mt-10 p-6 bg-white shadow-lg rounded-xl">
       <h2 className="text-2xl font-bold mb-4 text-center">Resume Content</h2>
@@ -22,21 +36,18 @@ const Form = () => {
       >
         <Section title="Basic Info">
           <div className="grid grid-cols-2">
-            <FormInput label="Name" inputName="name" />
-            <FormInput label="Job Title" inputName="title" />
-            <FormInput label="Location" inputName="location" />
-            <FormInput label="Phone" inputName="phone" />
-            <FormInput label="Email" inputName="mail" />
-            <FormInput label="LinkedIn" inputName="linkedin" />
-            <FormInput label="GitHub" inputName="github" />
-            <FormInput label="Date of Birth" inputName="dob" />
-            <FormInput label="Nationality" inputName="nationality" />
-            <FormInput label="Visa" inputName="visa" />
+            {USERINFO_INPUTS.map((inputElem) => (
+              <FormInput
+                key={inputElem.id}
+                label={inputElem.label}
+                inputName={inputElem.inputName}
+              />
+            ))}
           </div>
         </Section>
         <Section title="Professional Summary">
           <textarea
-            onChange={(e)=>setProfessionalSummeryValue(e.target.value)}
+            onChange={(e) => setProfessionalSummeryValue(e.target.value)}
             defaultValue={professionalSummeryValue}
             id="summary"
             name="summary"
@@ -47,7 +58,9 @@ const Form = () => {
         <Section title="Skills">
           <SkillInputGroup />
         </Section>
-
+        <Section title="Work Experience">
+          <ExperienceInputGroup />
+        </Section>
         <button
           type="submit"
           className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
