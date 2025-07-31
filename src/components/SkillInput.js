@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Badge from "./Badge";
 import FormInput from "./FormInput";
 import CheckBox from "./CheckBox";
@@ -8,9 +8,14 @@ const mockData = {
   skills: ["ReactJS", "Redux", "Tailwind", "Angular", "SCSS", "Bootstrap"],
   occupyfullRow: false,
 };
-const SkillInput = ({ skillInfo = mockData }) => {
+const SkillInput = ({ skillInfo = mockData, updateSkillData }) => {
   const [skillData, setskillData] = useState(skillInfo);
+  const [groupName, setGroupName] = useState(skillInfo.header);
   const [skillInputValue, setSkillInputValue] = useState("");
+
+  useEffect(() => {
+    updateSkillData && updateSkillData(skillData);
+  }, [skillData]);
 
   const addNewSkill = (newSkill) => {
     if (!skillData.skills.includes(newSkill)) {
@@ -31,13 +36,14 @@ const SkillInput = ({ skillInfo = mockData }) => {
     }
   };
   return (
-    <div>
+    <div className="border-b mb-8 pb-8">
       <div className="grid  grid-cols-2">
         <FormInput
           label="Group Name"
           inputname="skillHeading"
-          value={skillData.header}
-          onChange={(e) =>
+          value={groupName}
+          onChange={(e) => setGroupName(e.target.value)}
+          onBlur={(e) =>
             setskillData((currentData) => ({
               ...currentData,
               header: e.target.value,

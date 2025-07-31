@@ -1,6 +1,6 @@
 import FormInput from "./FormInput";
 import Section from "./Section";
-import SkillInput from "./SkillInput";
+import SkillInputGroup from "./SkillInputGroup";
 
 const Form = () => {
   return (
@@ -13,8 +13,7 @@ const Form = () => {
           }
         }}
         onSubmit={(e) => {
-          e.preventDefault(); // just in case
-          // your submit logic
+          e.preventDefault();
         }}
         className="space-y-4"
       >
@@ -41,7 +40,7 @@ const Form = () => {
           />
         </Section>
         <Section title="Skills">
-          <SkillInput />
+          <SkillInputGroup />
         </Section>
 
         <button
