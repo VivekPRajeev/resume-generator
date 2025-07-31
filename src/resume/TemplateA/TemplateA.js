@@ -11,6 +11,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import HeaderLabel from "../../components/HeaderLabel";
 import WorkExperience from "../../components/WorkExperience";
 import Section from "../../components/Section";
+import Skills from "../../components/Skills";
 
 const TemplateA = () => {
   return (
@@ -60,27 +61,7 @@ const TemplateA = () => {
         </p>
       </Section>
       <Section title="Skills">
-        <div className="grid grid-cols-2 text-sm gap-y-1">
-          <div>
-            <h2 className="text-mb font-semibold ">Frontend</h2>
-            <div className=" text-sm gap-y-1">
-              <span>ReactJS, Redux, Tailwind, Angular, SCSS, Bootstrap </span>
-            </div>
-          </div>
-          <div>
-            <h2 className="text-mb font-semibold ">Backend</h2>
-            <span className=" text-sm gap-y-1">NodeJs, Laravel , Python</span>
-          </div>
-          <div className="col-span-2">
-            <h2 className="text-mb font-semibold ">Other</h2>
-            <span className=" text-sm gap-y-1">
-              CI/CD, Jenkins, Docker, Jira, Bitbucket, Git, SonarQube, Webpack,
-              Storybook, Typescript, ES6, GraphQL, Microfrontend, Javascript,
-              TDD, DDD (Domain Driven Development), Jest, React Testing Library,
-              D3Js, Figma, Code Review, AWS, Data Analytics
-            </span>
-          </div>
-        </div>
+        <Skills />
       </Section>
       <Section title="Work Experience">
         <WorkExperience description="Led a small team of developers and Worked for a leading US-based Insurance company" />
