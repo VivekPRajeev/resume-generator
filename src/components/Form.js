@@ -5,7 +5,6 @@ import SkillInputGroup from "./SkillInputGroup";
 import { professionalSummery } from "../atoms/formAtoms";
 import WorkExperienceInputGroup from "./WorkExperienceInputGroup";
 import { EducationInputGroup } from "./EducationInputGroup";
-import { useEffect, useState } from "react";
 
 const USERINFO_INPUTS = [
   { id: 1, label: "Name", inputName: "name" },
