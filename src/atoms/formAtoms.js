@@ -1,5 +1,16 @@
 import { atom } from "jotai";
-
+export const basicInfo = atom({
+  name: "Vivek Pulimparambil Rajeev",
+  title: "Senior Software Engineer",
+  location: "",
+  Phone: "",
+  email: "",
+  linkedin: "",
+  github: "",
+  dob: "",
+  nationality: "",
+  visa: "",
+});
 export const skillGroup = atom([
   {
     header: "Frontend",

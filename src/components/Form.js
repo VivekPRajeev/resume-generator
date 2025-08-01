@@ -5,6 +5,7 @@ import SkillInputGroup from "./SkillInputGroup";
 import { professionalSummery } from "../atoms/formAtoms";
 import WorkExperienceInputGroup from "./WorkExperienceInputGroup";
 import { EducationInputGroup } from "./EducationInputGroup";
+import { useEffect, useState } from "react";
 
 const USERINFO_INPUTS = [
   { id: 1, label: "Name", inputName: "name" },
@@ -23,7 +24,9 @@ const Form = () => {
     useAtom(professionalSummery);
   return (
     <div className="mx-auto ml-10 mt-10 p-6 bg-white shadow-lg rounded-xl h-screen overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-rounded-md scrollbar-thumb-gray-400 scrollbar-track-gray-100">
-      <h2 className="text-2xl font-bold mb-4 text-center">Resume Content</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">
+        Resume Content
+      </h2>
       <form
         onKeyDown={(e) => {
           if (e.key === "Enter") {
