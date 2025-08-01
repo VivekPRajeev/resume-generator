@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import FormInput from "./FormInput";
 import Section from "./Section";
 import SkillInputGroup from "./SkillInputGroup";
-import { professionalSummery } from "../atoms/formAtoms";
+import { basicInfo, professionalSummery } from "../atoms/formAtoms";
 import WorkExperienceInputGroup from "./WorkExperienceInputGroup";
 import { EducationInputGroup } from "./EducationInputGroup";
 
@@ -11,7 +11,7 @@ const USERINFO_INPUTS = [
   { id: 2, label: "Job Title", inputName: "title" },
   { id: 3, label: "Location", inputName: "location" },
   { id: 4, label: "Phone", inputName: "phone" },
-  { id: 5, label: "Email", inputName: "mail" },
+  { id: 5, label: "Email", inputName: "email" },
   { id: 6, label: "LinkedIn", inputName: "linkedin" },
   { id: 7, label: "GitHub", inputName: "github" },
   { id: 8, label: "Date of Birth", inputName: "dob" },
@@ -21,6 +21,12 @@ const USERINFO_INPUTS = [
 const Form = () => {
   const [professionalSummeryValue, setProfessionalSummeryValue] =
     useAtom(professionalSummery);
+  const [basicInfoValue, setBasicInfoValue] =
+    useAtom(basicInfo);
+
+    const setBasicInfo=( key ,value)=>{
+      setBasicInfoValue((current)=>({...current, [key]:value}))
+    }
   return (
     <div className="mx-auto ml-10 mt-10 p-6 bg-white shadow-lg rounded-xl h-screen overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-rounded-md scrollbar-thumb-gray-400 scrollbar-track-gray-100">
       <h2 className="text-2xl font-bold mb-4 text-center">
@@ -43,7 +49,9 @@ const Form = () => {
               <FormInput
                 key={inputElem.id}
                 label={inputElem.label}
+                value={basicInfoValue[inputElem.inputName]}
                 inputName={inputElem.inputName}
+                onChange={(e)=>setBasicInfo(inputElem.inputName , e.target.value)}
               />
             ))}
           </div>

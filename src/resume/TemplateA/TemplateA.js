@@ -14,6 +14,7 @@ import Section from "../../components/Section";
 import Skills from "../../components/Skills";
 import { useAtomValue } from "jotai";
 import {
+  basicInfo,
   educationGroup,
   experienceGroup,
   professionalSummery,
@@ -21,45 +22,84 @@ import {
 } from "../../atoms/formAtoms";
 
 const TemplateA = () => {
+  const basicInfoValue = useAtomValue(basicInfo);
   const skillValue = useAtomValue(skillGroup);
   const summary = useAtomValue(professionalSummery);
   const workExp = useAtomValue(experienceGroup);
-  const education = useAtomValue(educationGroup)
+  const education = useAtomValue(educationGroup);
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 text-gray-800 font-sans">
       <header className="text-center mb-5">
-        <h1 className="text-3xl font-bold">Vivek Pulimparambil Rajeev</h1>
-        <h2 className="text-2xl font-bold">Senior Software Engineer</h2>
+        <h1 className="text-3xl font-bold">{basicInfoValue.name}</h1>
+        <h2 className="text-2xl font-bold">{basicInfoValue.title}</h2>
         <p className="text-sm mt-1">
-          <HeaderLabel icon={faLocationDot} label={" Hamburg, Germany "} /> |
-          <HeaderLabel icon={faPhone} label={" +49 1575 6609725 "} /> |
-          <HeaderLabel
-            icon={faEnvelope}
-            label={"vivek.rajeev.09@gmail.com"}
-            href="mailto:vivek.rajeev.09@gmail.com"
-          />{" "}
-          |
-          <HeaderLabel
-            icon={faLinkedin}
-            target="_blank"
-            href="https://www.linkedin.com/in/vivekprajeev"
-            rel="noopener noreferrer"
-            label="LinkedIn Profile"
-          />{" "}
-          |
-          <HeaderLabel
-            icon={faGithub}
-            target="_blank"
-            href="https://github.com/VivekPRajeev"
-            rel="noopener noreferrer"
-            label="Github"
-          />
+          {basicInfoValue.location && (
+            <>
+              <HeaderLabel
+                icon={faLocationDot}
+                label={basicInfoValue.location}
+              />{" "}
+              |
+            </>
+          )}
+          {basicInfoValue.phone && (
+            <>
+              <HeaderLabel icon={faPhone} label={basicInfoValue.phone} /> |
+            </>
+          )}
+          {basicInfoValue.email && (
+            <>
+              <HeaderLabel
+                icon={faEnvelope}
+                label={basicInfoValue.email}
+                href={`mailto:${basicInfoValue.email}`}
+              />{" "}
+              |
+            </>
+          )}
+          {basicInfoValue.linkedin && (
+            <>
+              <HeaderLabel
+                icon={faLinkedin}
+                target="_blank"
+                href={basicInfoValue.linkedin}
+                rel="noopener noreferrer"
+                label="LinkedIn Profile"
+              />{" "}
+              |
+            </>
+          )}
+          {basicInfoValue.github && (
+            <>
+              <HeaderLabel
+                icon={faGithub}
+                target="_blank"
+                href={basicInfoValue.github}
+                rel="noopener noreferrer"
+                label="Github"
+              />
+            </>
+          )}
         </p>
         <p className="text-sm mt-1">
-          <FontAwesomeIcon icon={faCalendarDay} /> Date of Birth: 12 July 1995 |{" "}
-          <FontAwesomeIcon icon={faEarthEurope} /> Nationality: Indian |{" "}
-          <FontAwesomeIcon icon={faPassport} />
-          Visa: Chancenkarte (Job Seeker Visa) - Eligible to work in Germany
+          {basicInfoValue.dob && (
+            <>
+              <FontAwesomeIcon icon={faCalendarDay} /> Date of Birth:{" "}
+              {basicInfoValue.dob} |{" "}
+            </>
+          )}
+          {basicInfoValue.nationality && (
+            <>
+              <FontAwesomeIcon icon={faEarthEurope} /> Nationality:{" "}
+              {basicInfoValue.nationality} |{" "}
+            </>
+          )}
+          {basicInfoValue.visa && (
+            <>
+              <FontAwesomeIcon icon={faPassport} />
+              Visa: {basicInfoValue.visa}
+            </>
+          )}
         </p>
       </header>
       <Section title="Professional Summary">
@@ -83,16 +123,17 @@ const TemplateA = () => {
         ))}
       </Section>
       <Section title="Education">
-        {education.map(edu=> <WorkExperience
-          companyName={edu.organization}
-          location={edu.location}
-          jobTitle={edu.title}
-          startDate={edu.from}
-          endDate={edu.to}
-          description={edu.description}
-          achievements={[]}
-        />)}
-       
+        {education.map((edu) => (
+          <WorkExperience
+            companyName={edu.organization}
+            location={edu.location}
+            jobTitle={edu.title}
+            startDate={edu.from}
+            endDate={edu.to}
+            description={edu.description}
+            achievements={[]}
+          />
+        ))}
       </Section>
       <div className="print:page-break"></div>
       <Section title="Languages" className="print:pt-10">

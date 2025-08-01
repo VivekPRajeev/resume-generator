@@ -1,16 +1,18 @@
 import { atom } from "jotai";
+
 export const basicInfo = atom({
   name: "Vivek Pulimparambil Rajeev",
   title: "Senior Software Engineer",
-  location: "",
-  Phone: "",
-  email: "",
-  linkedin: "",
-  github: "",
-  dob: "",
-  nationality: "",
-  visa: "",
+  location: " Hamburg, Germany",
+  phone: "+49 1575 6609725",
+  email: "vivek.rajeev.09@gmail.com",
+  linkedin: "https://www.linkedin.com/in/vivekprajeev",
+  github: "https://github.com/VivekPRajeev",
+  dob: "12 July 1995",
+  nationality: "Indian",
+  visa: "Chancenkarte (Job Seeker Visa) - Eligible to work in Germany",
 });
+
 export const skillGroup = atom([
   {
     header: "Frontend",
