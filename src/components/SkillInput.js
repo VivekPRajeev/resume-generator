@@ -15,7 +15,7 @@ const SkillInput = ({ skillInfo = mockData, updateSkillData }) => {
 
   useEffect(() => {
     updateSkillData && updateSkillData(skillData);
-  }, [skillData]);
+  }, [skillData, updateSkillData]);
 
   const addNewSkill = (newSkill) => {
     if (!skillData.skills.includes(newSkill)) {
