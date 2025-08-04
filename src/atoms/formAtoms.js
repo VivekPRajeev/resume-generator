@@ -13,6 +13,19 @@ export const basicInfo = atom({
   visa: "Chancenkarte (Job Seeker Visa) - Eligible to work in Germany",
 });
 
+export const languageList = atom([
+  "English (C1-C2)",
+  "German (A1-A2) - Studying to reach B1-B2",
+  "Hindi (B1)",
+  "Malayalam (C2)",
+]);
+
+export const certificationList = atom([
+  "Cutshort Certified JavaScript – Advanced (Feb 2025)",
+  "IT Security Foundations – LinkedIn (Jul 2024)",
+  "React: Software Architecture – LinkedIn (Aug 2021)",
+]);
+
 export const skillGroup = atom([
   {
     header: "Frontend",
@@ -56,6 +69,12 @@ export const skillGroup = atom([
 
 export const professionalSummery = atom(
   "Senior Frontend Developer with 7+ years of experience building scalable, high-performance React and Angular applications. Skilled in modern JavaScript frameworks, component-based development, REST APIs, and CI/CD pipelines. Strong problem-solving abilities and collaborative team player."
+);
+
+export const availability = atom("Available to start immediately");
+
+export const interests = atom(
+  "UI/UX design, performance optimization, AI in frontend, relocation within Germany"
 );
 
 export const experienceGroup = atom([

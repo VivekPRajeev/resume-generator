@@ -2,9 +2,17 @@ import { useAtom } from "jotai";
 import FormInput from "./FormInput";
 import Section from "./Section";
 import SkillInputGroup from "./SkillInputGroup";
-import { basicInfo, professionalSummery } from "../atoms/formAtoms";
+import {
+  availability,
+  basicInfo,
+  certificationList,
+  interests,
+  languageList,
+  professionalSummery,
+} from "../atoms/formAtoms";
 import WorkExperienceInputGroup from "./WorkExperienceInputGroup";
 import { EducationInputGroup } from "./EducationInputGroup";
+import ColumnListInput from "./ColumnListInput";
 
 const USERINFO_INPUTS = [
   { id: 1, label: "Name", inputName: "name" },
@@ -21,17 +29,19 @@ const USERINFO_INPUTS = [
 const Form = () => {
   const [professionalSummeryValue, setProfessionalSummeryValue] =
     useAtom(professionalSummery);
-  const [basicInfoValue, setBasicInfoValue] =
-    useAtom(basicInfo);
+  const [basicInfoValue, setBasicInfoValue] = useAtom(basicInfo);
+  const [languageValues, setLanguageValues] = useAtom(languageList);
+  const [certifications, setCertifications] = useAtom(certificationList);
+  const [availabilityValue, setAvailabilityValue] = useAtom(availability);
+  const [interestValue, setIntersetsValue] = useAtom(interests);
 
-    const setBasicInfo=( key ,value)=>{
-      setBasicInfoValue((current)=>({...current, [key]:value}))
-    }
+
+  const setBasicInfo = (key, value) => {
+    setBasicInfoValue((current) => ({ ...current, [key]: value }));
+  };
   return (
-    <div className="mx-auto ml-10 mt-10 p-6 bg-white shadow-lg rounded-xl h-screen overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-rounded-md scrollbar-thumb-gray-400 scrollbar-track-gray-100">
-      <h2 className="text-2xl font-bold mb-4 text-center">
-        Resume Content
-      </h2>
+    <div className="mx-auto ml-10 mt-10 p-6 min-h-[1496px] bg-white shadow-lg rounded-xl h-screen overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-rounded-md scrollbar-thumb-gray-400 scrollbar-track-gray-100">
+      <h2 className="text-2xl font-bold mb-4 text-center">Resume Content</h2>
       <form
         onKeyDown={(e) => {
           if (e.key === "Enter") {
@@ -51,7 +61,9 @@ const Form = () => {
                 label={inputElem.label}
                 value={basicInfoValue[inputElem.inputName]}
                 inputName={inputElem.inputName}
-                onChange={(e)=>setBasicInfo(inputElem.inputName , e.target.value)}
+                onChange={(e) =>
+                  setBasicInfo(inputElem.inputName, e.target.value)
+                }
               />
             ))}
           </div>
@@ -74,6 +86,38 @@ const Form = () => {
         </Section>
         <Section title="Education">
           <EducationInputGroup />
+        </Section>
+        <Section title="Languages">
+          <ColumnListInput
+            initVals={languageValues}
+            updateAtom={(value) => setLanguageValues(value)}
+          />
+        </Section>
+        <Section title="Certifications">
+          <ColumnListInput
+            initVals={certifications}
+            updateAtom={(value) => setCertifications(value)}
+          />
+        </Section>
+        <Section title="Availability">
+          <textarea
+            onChange={(e) => setAvailabilityValue(e.target.value)}
+            defaultValue={availabilityValue}
+            id="availability"
+            name="availability"
+            rows="2"
+            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
+        </Section>
+         <Section title="Interests">
+          <textarea
+            onChange={(e) => setIntersetsValue(e.target.value)}
+            defaultValue={interestValue}
+            id="interests"
+            name="interests"
+            rows="2"
+            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
         </Section>
         <button
           type="submit"

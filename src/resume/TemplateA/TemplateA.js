@@ -14,12 +14,17 @@ import Section from "../../components/Section";
 import Skills from "../../components/Skills";
 import { useAtomValue } from "jotai";
 import {
+  availability,
   basicInfo,
+  certificationList,
   educationGroup,
   experienceGroup,
+  interests,
+  languageList,
   professionalSummery,
   skillGroup,
 } from "../../atoms/formAtoms";
+import ColumnList from "../../components/ColumnList";
 
 const TemplateA = () => {
   const basicInfoValue = useAtomValue(basicInfo);
@@ -27,6 +32,10 @@ const TemplateA = () => {
   const summary = useAtomValue(professionalSummery);
   const workExp = useAtomValue(experienceGroup);
   const education = useAtomValue(educationGroup);
+  const language = useAtomValue(languageList);
+  const certificates = useAtomValue(certificationList);
+  const availabilityValue = useAtomValue(availability);
+  const interestsValue = useAtomValue(interests);
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 text-gray-800 font-sans">
       <header className="text-center mb-5">
@@ -137,38 +146,18 @@ const TemplateA = () => {
       </Section>
       <div className="print:page-break"></div>
       <Section title="Languages" className="print:pt-10">
-        <ul className="grid grid-cols-2  list-disc list-inside text-sm">
-          <li> English (C1-C2)</li>
-          <li> German (A1-A2) - Studying to reach B1-B2</li>
-          <li> Hindi (B1)</li>
-          <li> Malayalam (C2)</li>
-        </ul>
+        <ColumnList listElems={language} />
       </Section>
 
       <Section title="Certificates">
-        <ul className="grid grid-cols-2 list-disc list-inside text-sm">
-          <li>Cutshort Certified JavaScript – Advanced (Feb 2025)</li>
-          <li>IT Security Foundations – LinkedIn (Jul 2024)</li>
-          <li>React: Software Architecture – LinkedIn (Aug 2021)</li>
-        </ul>
+        <ColumnList listElems={certificates} />
       </Section>
-
-      <section className="mb-6 text-left">
-        <h2 className="text-xl font-semibold border-b border-gray-300 pb-1 mb-2">
-          Availability
-        </h2>
-        <p className="text-sm">Available to start immediately</p>
-      </section>
-
-      <section className="text-left">
-        <h2 className="text-xl font-semibold border-b border-gray-300 pb-1 mb-2">
-          Interests
-        </h2>
-        <p className="text-sm">
-          UI/UX design, performance optimization, AI in frontend, relocation
-          within Germany
-        </p>
-      </section>
+      <Section title="Availability">
+        <p className="text-sm">{availabilityValue}</p>
+      </Section>
+      <Section title="Interests">
+        <p className="text-sm">{interestsValue}</p>
+      </Section>
     </div>
   );
 };
