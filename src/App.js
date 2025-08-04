@@ -1,10 +1,11 @@
 import "./App.css";
-import TemplateA from "./resume/TemplateA/TemplateA";
+import EditorPage from "./Pages/EditorPage/EditorPage";
+
 
 function App() {
   return (
     <div className="App">
-      <TemplateA/>
+     <EditorPage/>
     </div>
   );
 }
