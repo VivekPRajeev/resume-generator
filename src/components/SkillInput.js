@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Badge from "./Badge";
 import FormInput from "./FormInput";
 import CheckBox from "./CheckBox";
@@ -13,26 +13,34 @@ const SkillInput = ({ skillInfo = mockData, updateSkillData }) => {
   const [groupName, setGroupName] = useState(skillInfo.header);
   const [skillInputValue, setSkillInputValue] = useState("");
 
-  useEffect(() => {
-    updateSkillData && updateSkillData(skillData);
-  }, [skillData, updateSkillData]);
-
   const addNewSkill = (newSkill) => {
     if (!skillData.skills.includes(newSkill)) {
-      setskillData((currentData) => ({
-        ...currentData,
-        skills: [...currentData.skills, newSkill],
-      }));
+      setskillData((currentData) => {
+        updateSkillData({
+          ...currentData,
+          skills: [...currentData.skills, newSkill],
+        });
+        return {
+          ...currentData,
+          skills: [...currentData.skills, newSkill],
+        };
+      });
       setSkillInputValue("");
     }
   };
 
   const removeSkill = (skill) => {
     if (skillData.skills.includes(skill)) {
-      setskillData((currentData) => ({
-        ...currentData,
-        skills: currentData.skills.filter((item) => item !== skill),
-      }));
+      setskillData((currentData) => {
+        updateSkillData({
+          ...currentData,
+          skills: currentData.skills.filter((item) => item !== skill),
+        });
+        return {
+          ...currentData,
+          skills: currentData.skills.filter((item) => item !== skill),
+        };
+      });
     }
   };
   return (
@@ -44,20 +52,32 @@ const SkillInput = ({ skillInfo = mockData, updateSkillData }) => {
           value={groupName}
           onChange={(e) => setGroupName(e.target.value)}
           onBlur={(e) =>
-            setskillData((currentData) => ({
-              ...currentData,
-              header: e.target.value,
-            }))
+            setskillData((currentData) => {
+              updateSkillData({
+                ...currentData,
+                header: e.target.value,
+              });
+              return {
+                ...currentData,
+                header: e.target.value,
+              };
+            })
           }
         />
         <CheckBox
           checked={skillData.occupyfullRow}
           label="Fill Row ?"
           onChange={(e) =>
-            setskillData((currentData) => ({
-              ...currentData,
-              occupyfullRow: !currentData.occupyfullRow,
-            }))
+            setskillData((currentData) => {
+              updateSkillData({
+                ...currentData,
+                occupyfullRow: !currentData.occupyfullRow,
+              });
+              return {
+                ...currentData,
+                occupyfullRow: !currentData.occupyfullRow,
+              };
+            })
           }
         />
       </div>
