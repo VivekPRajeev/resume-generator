@@ -1,130 +1,121 @@
 import { atom } from "jotai";
 
 export const basicInfo = atom({
-  name: "Vivek Pulimparambil Rajeev",
-  title: "Senior Software Engineer",
-  location: " Hamburg, Germany",
-  phone: "+49 1575 6609725",
-  email: "vivek.rajeev.09@gmail.com",
-  linkedin: "https://www.linkedin.com/in/vivekprajeev",
-  github: "https://github.com/VivekPRajeev",
-  dob: "12 July 1995",
-  nationality: "Indian",
-  visa: "Chancenkarte (Job Seeker Visa) - Eligible to work in Germany",
+  name: "Alex Johnson",
+  title: "Full Stack Developer",
+  location: "Berlin, Germany",
+  phone: "+49 170 1234567",
+  email: "alex.johnson@example.com",
+  linkedin: "https://www.linkedin.com/in/alexjohnson",
+  github: "https://github.com/alexjohnsondev",
+  dob: "01 January 1990",
+  nationality: "Canadian",
+  visa: "Work Permit - Eligible to work in EU",
 });
 
 export const languageList = atom([
-  "English (C1-C2)",
-  "German (A1-A2) - Studying to reach B1-B2",
-  "Hindi (B1)",
-  "Malayalam (C2)",
+  "English (Native)",
+  "German (B1)",
+  "Spanish (A2)",
 ]);
 
 export const certificationList = atom([
-  "Cutshort Certified JavaScript – Advanced (Feb 2025)",
-  "IT Security Foundations – LinkedIn (Jul 2024)",
-  "React: Software Architecture – LinkedIn (Aug 2021)",
+  "Certified Full Stack Developer – Code Academy (Jun 2024)",
+  "Cloud Fundamentals – Coursera (Jan 2023)",
+  "Agile with Scrum – LinkedIn (Dec 2022)",
 ]);
 
 export const skillGroup = atom([
   {
     header: "Frontend",
-    skills: ["ReactJS", "Redux", "Tailwind", "Angular", "SCSS", "Bootstrap"],
+    skills: ["VueJS", "ReactJS", "Tailwind", "HTML", "CSS", "JavaScript"],
     occupyfullRow: false,
   },
   {
     header: "Backend",
-    skills: ["NodeJs", "Laravel", "Python"],
+    skills: ["ExpressJS", "Django", "GoLang"],
     occupyfullRow: false,
   },
   {
     header: "Other",
     skills: [
-      "CI/CD",
-      "Jenkins",
       "Docker",
-      "Jira",
-      "Bitbucket",
-      "Git",
-      "SonarQube",
-      "Webpack",
-      "Storybook",
-      "Typescript",
-      "ES6",
-      "GraphQL",
-      "Microfrontend",
-      "Javascript",
-      "TDD",
-      "Jest",
-      "React testing library",
-      "D3Js",
+      "GitHub Actions",
+      "Kubernetes",
       "Figma",
-      "Code Review",
+      "REST APIs",
+      "GraphQL",
+      "TypeScript",
       "AWS",
-      "Data Analytics",
+      "Firebase",
+      "Webpack",
+      "Jest",
+      "Agile/Scrum",
+      "CI/CD",
+      "Terraform",
     ],
     occupyfullRow: true,
   },
 ]);
 
 export const professionalSummery = atom(
-  "Senior Frontend Developer with 7+ years of experience building scalable, high-performance React and Angular applications. Skilled in modern JavaScript frameworks, component-based development, REST APIs, and CI/CD pipelines. Strong problem-solving abilities and collaborative team player."
+  "Full Stack Developer with over 5 years of experience building modern, responsive web applications. Skilled in JavaScript frameworks, scalable backend systems, and cloud infrastructure. Passionate about clean code, team collaboration, and continuous learning."
 );
 
-export const availability = atom("Available to start immediately");
+export const availability = atom("Open to opportunities starting September 2025");
 
 export const interests = atom(
-  "UI/UX design, performance optimization, AI in frontend, relocation within Germany"
+  "Web performance, cloud-native development, remote teams, open source contributions"
 );
 
 export const experienceGroup = atom([
   {
-    title: "Module Lead / Senior Software Engineer",
-    organization: "Aspire  Systems",
-    location: "Kochi, India",
-    from: "Mar 2021",
-    to: "May 2024",
+    title: "Full Stack Developer",
+    organization: "TechNova Solutions",
+    location: "Berlin, Germany",
+    from: "Feb 2022",
+    to: "Present",
     description:
-      "Led a small team of developers and Worked for a leading US-based Insurance company",
+      "Worked on various client projects in the fintech and e-commerce space",
     achievements: [
-      "Led migration to React, improving performance and UX.",
-      "Boosted test coverage to 75% using SonarQube.",
-      "Managed CI/CD pipelines with Jenkins and resolved 100% of security vulnerabilities.",
+      "Built microservices for internal tools, reducing deployment time by 30%",
+      "Implemented CI/CD pipelines using GitHub Actions",
+      "Refactored monolithic legacy system into modular architecture",
     ],
   },
   {
-    title: "Software Engineer",
-    organization: "Fingent Global Solutions",
-    location: "Kochi, India",
-    from: "August 2017",
-    to: "March 2021",
+    title: "Web Developer",
+    organization: "Pixel Forge",
+    location: "Toronto, Canada",
+    from: "Jul 2018",
+    to: "Jan 2022",
     description:
-      "Worked on product team and was heavily involved in the development of InfinCE Digital Workplace",
+      "Contributed to client-facing applications and internal admin dashboards",
     achievements: [
-      "Developed frontend modules using Angular, React, Laravel.",
-      "Integrated Stripe for real-time billing and payment handling.",
-      "Created dynamic dashboards with data visualizations",
+      "Created reusable React components and design system",
+      "Integrated 3rd party APIs and payment gateways",
+      "Improved lighthouse performance score from 65 to 92",
     ],
   },
 ]);
 
 export const educationGroup = atom([
   {
-    title: "Executive PG Programme in Machine Learning & AI",
-    organization: "International Institute of Information Technology",
-    location: "Banglore, India",
-    from: "May 2023",
-    to: "July 2024",
-    description: "Completed course with  a GPA of 3.44",
+    title: "MSc in Computer Science",
+    organization: "Global University of Technology",
+    location: "Toronto, Canada",
+    from: "Sep 2020",
+    to: "Aug 2022",
+    description: "Graduated with distinction",
     achievements: [],
   },
   {
-    title: "B.Tech in Electronics & Communication",
-    organization: "University College of Engineering, Thodupuzha",
-    location: "Kerala, India",
-    from: "March 2013",
-    to: "May 2017",
-    description: "Completed course with  a CGPA of 7.11",
+    title: "BSc in Information Technology",
+    organization: "Northern State University",
+    location: "Calgary, Canada",
+    from: "Sep 2015",
+    to: "Jun 2019",
+    description: "Completed coursework in data structures, web dev, and cloud",
     achievements: [],
   },
 ]);
