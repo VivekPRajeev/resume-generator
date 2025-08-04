@@ -1,33 +1,44 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import FormInput from "./FormInput";
 
 const ExperienceInput = ({ experienceData, setExperienceData }) => {
   const [experience, setExperience] = useState(experienceData);
   const [achievement, setAchievement] = useState("");
 
-  useEffect(() => {
-    setExperienceData && setExperienceData(experience);
-  }, [experience, setExperienceData]);
-
   const updateExperienceData = (key, value) => {
     setExperience((currentData) => ({ ...currentData, [key]: value }));
   };
   const addNewAchievement = (newAchievement) => {
     if (!experience.achievements.includes(newAchievement)) {
-      setExperience((currentData) => ({
-        ...currentData,
-        achievements: [...currentData.achievements, newAchievement],
-      }));
+      setExperience((currentData) => {
+        setExperienceData({
+          ...currentData,
+          achievements: [...currentData.achievements, newAchievement],
+        });
+        return {
+          ...currentData,
+          achievements: [...currentData.achievements, newAchievement],
+        };
+      });
       setAchievement("");
     }
   };
   const removeAchievement = (skill) => {
     if (experience.achievements.includes(skill)) {
-      setExperience((currentData) => ({
-        ...currentData,
-        achievements: currentData.achievements.filter((item) => item !== skill),
-      }));
-     
+      setExperience((currentData) => {
+        setExperienceData({
+          ...currentData,
+          achievements: currentData.achievements.filter(
+            (item) => item !== skill
+          ),
+        });
+        return {
+          ...currentData,
+          achievements: currentData.achievements.filter(
+            (item) => item !== skill
+          ),
+        };
+      });
     }
   };
   return (
@@ -42,7 +53,6 @@ const ExperienceInput = ({ experienceData, setExperienceData }) => {
         <FormInput
           label="Organization"
           value={experience?.organization}
-
           inputName="organization"
           onChange={(e) => updateExperienceData("organization", e.target.value)}
         />
@@ -56,20 +66,17 @@ const ExperienceInput = ({ experienceData, setExperienceData }) => {
           label="From"
           inputName="from"
           value={experience?.from}
-
           onChange={(e) => updateExperienceData("from", e.target.value)}
         />
         <FormInput
           label="To"
           inputName="to"
           value={experience?.to}
-
           onChange={(e) => updateExperienceData("to", e.target.value)}
         />
       </div>
       <textarea
         onChange={(e) => updateExperienceData("description", e.target.value)}
-         
         defaultValue={experience.description}
         id="summary"
         name="summary"
